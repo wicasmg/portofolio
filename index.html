@@ -71,6 +71,7 @@
                     <a href="#about" class="text-slate-600 hover:text-maritime-900 font-medium transition">Tentang</a>
                     <a href="#books" class="text-slate-600 hover:text-maritime-900 font-medium transition">Buku</a>
                     <a href="#publications" class="text-slate-600 hover:text-maritime-900 font-medium transition">Jurnal</a>
+                    <a href="#articles" class="text-slate-600 hover:text-maritime-900 font-medium transition">Artikel</a>
                     <a href="#haki" class="text-slate-600 hover:text-maritime-900 font-medium transition">HAKI</a>
                     <a href="#grants" class="text-slate-600 hover:text-maritime-900 font-medium transition">Hibah</a>
                 </div>
@@ -88,6 +89,7 @@
                 <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-maritime-900 hover:bg-slate-50">Tentang</a>
                 <a href="#books" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-maritime-900 hover:bg-slate-50">Buku</a>
                 <a href="#publications" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-maritime-900 hover:bg-slate-50">Jurnal</a>
+                <a href="#articles" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-maritime-900 hover:bg-slate-50">Artikel</a>
                 <a href="#haki" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-maritime-900 hover:bg-slate-50">HAKI</a>
                 <a href="#grants" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-maritime-900 hover:bg-slate-50">Hibah</a>
             </div>
@@ -155,7 +157,7 @@
         <div class="max-w-4xl mx-auto px-4 text-center">
             <h2 class="text-3xl font-serif font-bold text-maritime-900 mb-6">Tentang Saya</h2>
             <p class="text-lg text-slate-600 leading-relaxed">
-                Saya adalah seorang dosen Bahasa Inggris yang mengabdikan diri di kampus maritim. Bidang keilmuan utama saya adalah <strong>English for Specific Purposes (ESP)</strong> dengan spesialisasi <strong>Bahasa Inggris Maritim</strong>. Selain itu, saya memiliki pengalaman dalam pengajaran Bahasa Inggris Transportasi yang mencakup sektor darat, laut, dan udara secara global.
+                Saya adalah seorang dosen Bahasa Inggris yang mengabdikan diri di kampus maritim. Bidang keilmuan utama saya adalah <strong>English for Specific Purposes (ESP)</strong> dengan spesialisasi <strong>Bahasa Inggris Maritim</strong>. Selain itu, saya juga memiliki pengalaman luas dalam pengajaran Bahasa Inggris Transportasi yang mencakup sektor darat, laut, dan udara secara global.
             </p>
         </div>
     </section>
@@ -206,8 +208,28 @@
         </div>
     </section>
 
+    <!-- Articles Section (New) -->
+    <section id="articles" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-3xl font-serif font-bold text-maritime-900">Artikel & Opini</h2>
+                    <p class="text-slate-500 mt-2">Tulisan dan pemikiran yang dimuat di berbagai media massa.</p>
+                </div>
+                <button id="add-article-btn" class="hidden px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 text-sm flex items-center gap-2">
+                    <i data-lucide="plus"></i> Tambah Artikel
+                </button>
+            </div>
+
+            <div class="grid gap-4" id="articles-container">
+                <!-- Articles injected here -->
+                <div class="text-center py-10 text-slate-400">Menghubungkan ke database...</div>
+            </div>
+        </div>
+    </section>
+
     <!-- HAKI Section -->
-    <section id="haki" class="py-20 bg-slate-50">
+    <section id="haki" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-end mb-12">
                 <div>
@@ -221,7 +243,7 @@
 
             <div class="overflow-x-auto rounded-lg border border-slate-200 shadow-sm">
                 <table class="min-w-full divide-y divide-slate-200 bg-white">
-                    <thead class="bg-white">
+                    <thead class="bg-slate-50">
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Judul Ciptaan</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">No. Permohonan</th>
@@ -240,7 +262,7 @@
     </section>
 
     <!-- Grants Section -->
-    <section id="grants" class="py-20 bg-white">
+    <section id="grants" class="py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-end mb-12">
                 <div>
@@ -260,7 +282,7 @@
     </section>
 
     <!-- Footer -->
-    <footer id="contact" class="bg-slate-50 border-t border-slate-200 pt-16 pb-8">
+    <footer id="contact" class="bg-white border-t border-slate-200 pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
                 <div>
@@ -277,6 +299,7 @@
                     <ul class="space-y-2 text-sm text-slate-600">
                         <li><a href="#about" class="hover:text-maritime-gold">Tentang</a></li>
                         <li><a href="#books" class="hover:text-maritime-gold">Publikasi</a></li>
+                        <li><a href="#articles" class="hover:text-maritime-gold">Artikel</a></li>
                         <li><a href="https://scholar.google.com/citations?user=7p4q5FMAAAAJ&hl=en" class="hover:text-maritime-gold">Google Scholar</a></li>
                     </ul>
                 </div>
@@ -381,6 +404,7 @@
         const pubsCol = collection(db, 'artifacts', APP_ID, 'public', 'data', 'publications');
         const hakiCol = collection(db, 'artifacts', APP_ID, 'public', 'data', 'haki');
         const grantsCol = collection(db, 'artifacts', APP_ID, 'public', 'data', 'grants');
+        const articlesCol = collection(db, 'artifacts', APP_ID, 'public', 'data', 'articles');
         const profileDoc = doc(db, 'artifacts', APP_ID, 'public', 'data', 'profile_data', 'main');
 
         // State
@@ -388,6 +412,7 @@
         let publications = [];
         let haki = [];
         let grants = [];
+        let articles = [];
         let isAdmin = false;
         let isConnected = false;
 
@@ -427,6 +452,14 @@
             { title: "Analisis Korpus Bahasa Inggris Maritim untuk Pengembangan Kamus dan Model Kompetensi Komunikasi Teknis di Ruang Mesin Kapal", year: "2025", source: "Didanai" },
             { title: "Pemanfaatan Teknologi AI Speech Recognition Untuk Memperbaiki Pengucapan Bahasa Inggris Melaui Metode Read Aloud", year: "2023", source: "Didanai" },
             { title: "EVALUASI PEMBELAJARAN DARING BAHASA INGGRIS TRANSPORTASI BERBASIS WEB MENGGUNAKAN GOOGLE SITE DI MASA PANDEMI", year: "2022", source: "Didanai" }
+        ];
+
+        const initialArticlesData = [
+            { title: "Sinergi Literasi Digital dan Bahasa Inggris untuk Pendidikan Maritim", source: "Kumparan", link: "https://kumparan.com/dhanan-abimanto/sinergi-literasi-digital-dan-bahasa-inggris-untuk-pendidikan-maritim-24jyaAWQuis" },
+            { title: "Hari Guru Nasional: Perlukah Semua Guru Menguasai Bahasa Inggris di Era Digital?", source: "Kumparan", link: "https://kumparan.com/dhanan-abimanto/hari-guru-nasional-perlukah-semua-guru-menguasai-bahasa-inggris-di-era-digital-23ytVtbQjlg" },
+            { title: "Maritim Cerdas: Saat Bahasa Inggris dan Teknologi Menjadi Nakhoda Perubahan", source: "Kumparan", link: "https://kumparan.com/dhanan-abimanto/maritim-cerdas-saat-bahasa-inggris-dan-teknologi-menjadi-nakhoda-perubahan-23yTNppb1hE" },
+            { title: "Pentingnya Belajar Bahasa Inggris bagi Seorang Muslim di Era Digital", source: "Retizen Republika", link: "https://retizen.republika.co.id/posts/489339/pentingnya-belajar-bahasa-inggris-bagi-seorang-muslim-di-era-digital" },
+            { title: "Menyikapi Perbedaan Penentuan Waktu Syawal dalam Literasi Keislaman untuk Toleransi dan Keharmonisan", source: "Retizen Republika", link: "https://retizen.republika.co.id/posts/515689/menyikapi-perbedaan-penentuan-waktu-syawal-dalam-literasi-keislaman-untuk-toleransi-dan-keharmonisan" }
         ];
 
         // Auth & Init Logic
@@ -485,6 +518,14 @@
                 checkIfEmpty();
             }, onError);
 
+            // Articles Listener
+            onSnapshot(articlesCol, (snapshot) => {
+                articles = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                // No specific sort year for articles provided, so using timestamp if available or just default order
+                window.renderArticles();
+                checkIfEmpty();
+            }, onError);
+
             // Profile Info Listener
             onSnapshot(profileDoc, (doc) => {
                 if (doc.exists()) {
@@ -502,7 +543,7 @@
 
         function checkIfEmpty() {
              const seedSection = document.getElementById('seed-data-section');
-             if (books.length === 0 && publications.length === 0 && haki.length === 0 && grants.length === 0) {
+             if (books.length === 0 && publications.length === 0 && haki.length === 0 && grants.length === 0 && articles.length === 0) {
                  seedSection.classList.remove('hidden');
              } else {
                  seedSection.classList.add('hidden');
@@ -624,6 +665,39 @@
             lucide.createIcons();
         }
 
+        window.renderArticles = function() {
+            const container = document.getElementById('articles-container');
+            if (articles.length === 0) {
+                container.innerHTML = `<div class="text-center py-10 text-slate-400 italic">Belum ada artikel. Login untuk menambahkan.</div>`;
+                return;
+            }
+            container.innerHTML = articles.map(art => `
+                <div class="flex flex-col md:flex-row gap-4 p-4 bg-white border border-slate-100 rounded-lg hover:shadow-sm transition items-start md:items-center">
+                    <div class="flex-shrink-0">
+                        <div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-maritime-900">
+                            <i data-lucide="file-text" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <div class="flex-grow">
+                        <h4 class="font-bold text-slate-800 text-lg hover:text-maritime-900 transition">
+                            <a href="${art.link}" target="_blank">${art.title}</a>
+                        </h4>
+                        <div class="flex items-center gap-2 text-sm text-slate-500 mt-1">
+                            <i data-lucide="newspaper" class="w-3 h-3"></i>
+                            <span class="font-medium">${art.source}</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 shrink-0">
+                        ${isAdmin ? `<button onclick="deleteItem('article', '${art.id}')" class="text-red-400 hover:text-red-600 p-2"><i data-lucide="trash-2" class="w-4 h-4"></i></button>` : ''}
+                        <a href="${art.link}" target="_blank" class="px-4 py-2 text-sm bg-slate-100 text-slate-600 rounded hover:bg-slate-200 transition flex items-center gap-2">
+                            Baca <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+            lucide.createIcons();
+        }
+
         // --- ADMIN LOGIC ---
         window.toggleLoginModal = function() {
             const modal = document.getElementById('login-modal');
@@ -654,6 +728,7 @@
                 document.getElementById('add-pub-btn').classList.remove('hidden');
                 document.getElementById('add-haki-btn').classList.remove('hidden');
                 document.getElementById('add-grant-btn').classList.remove('hidden');
+                document.getElementById('add-article-btn').classList.remove('hidden');
                 
                 // Show profile edit overlay
                 const overlay = document.getElementById('admin-upload-overlay');
@@ -666,6 +741,7 @@
                 window.renderPublications();
                 window.renderHaki();
                 window.renderGrants();
+                window.renderArticles();
             }
         }
 
@@ -758,6 +834,8 @@
                     await deleteDoc(doc(hakiCol, id));
                 } else if (type === 'grant') {
                     await deleteDoc(doc(grantsCol, id));
+                } else if (type === 'article') {
+                    await deleteDoc(doc(articlesCol, id));
                 }
             } catch (e) {
                 console.error("Delete failed", e);
@@ -781,6 +859,8 @@
                 for (const item of initialHakiData) await addDoc(hakiCol, item);
                 // Upload Grants
                 for (const item of initialGrantsData) await addDoc(grantsCol, item);
+                // Upload Articles
+                for (const item of initialArticlesData) await addDoc(articlesCol, item);
                 
                 alert("Data berhasil diunggah!");
                 window.toggleLoginModal(); // Close modal
@@ -902,6 +982,30 @@
                         title: document.getElementById('input-grant-title').value,
                         year: document.getElementById('input-grant-year').value,
                         source: document.getElementById('input-grant-source').value || 'Didanai',
+                        timestamp: Date.now()
+                    });
+                    closeEditModal();
+                } catch(e) { alert("Gagal menyimpan: " + e.message); }
+                btn.textContent = "Simpan";
+            };
+            modal.classList.remove('hidden');
+        });
+
+        document.getElementById('add-article-btn').addEventListener('click', () => {
+            modalTitle.innerText = "Tambah Artikel Media";
+            modalContent.innerHTML = `
+                <input type="text" id="input-article-title" placeholder="Judul Artikel" class="w-full border p-2 rounded">
+                <input type="text" id="input-article-source" placeholder="Nama Media (misal: Kumparan)" class="w-full border p-2 rounded">
+                <input type="text" id="input-article-link" placeholder="Link Artikel (URL)" class="w-full border p-2 rounded">
+            `;
+            saveBtn.onclick = async () => {
+                const btn = saveBtn;
+                btn.textContent = "Menyimpan...";
+                try {
+                    await addDoc(articlesCol, {
+                        title: document.getElementById('input-article-title').value,
+                        source: document.getElementById('input-article-source').value,
+                        link: document.getElementById('input-article-link').value,
                         timestamp: Date.now()
                     });
                     closeEditModal();
