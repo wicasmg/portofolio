@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhanan Abimanto - Academic Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        maritime: {
+                            900: '#0f172a', // Deep Navy
+                            800: '#1e293b',
+                            700: '#334155',
+                            gold: '#c5a059', // Academic Gold
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        /* Hide scrollbar for clean look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .profile-overlay {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased relative">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-200" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <i data-lucide="anchor" class="text-maritime-900 w-6 h-6"></i>
+                    <span class="font-serif font-bold text-xl text-maritime-900 tracking-tight">Dhanan Abimanto</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-slate-600 hover:text-maritime-900 font-medium transition">Tentang</a>
+                    <a href="#books" class="text-slate-600 hover:text-maritime-900 font-medium transition">Buku</a>
+                    <a href="#publications" class="text-slate-600 hover:text-maritime-900 font-medium transition">Jurnal</a>
+                    <a href="#haki" class="text-slate-600 hover:text-maritime-900 font-medium transition">HAKI</a>
+                    <a href="#grants" class="text-slate-600 hover:text-maritime-900 font-medium transition">Hibah</a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-maritime-900 focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div class="md:hidden hidden bg-white border-t" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 shadow-lg">
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-maritime-900 hover:bg-slate-50">Tentang</a>
+                <a href="#books" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-maritime-900 hover:bg-slate-50">Buku</a>
+                <a href="#publications" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-maritime-900 hover:bg-slate-50">Jurnal</a>
+                <a href="#haki" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-maritime-900 hover:bg-slate-50">HAKI</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-20 lg:pt-48 lg:pb-32 bg-maritime-900 relative overflow-hidden text-white">
+        <!-- Abstract Waves Background -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+            <svg viewBox="0 0 1440 320" class="absolute bottom-0 w-full h-auto">
+                <path fill="#ffffff" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-maritime-800 border border-maritime-700 text-maritime-gold text-sm font-medium">
+                        <span class="w-2 h-2 rounded-full bg-green-400"></span>
+                        Lecturer & Researcher
+                    </div>
+                    <h1 class="text-4xl lg:text-6xl font-serif font-bold leading-tight">
+                        Maritime English & <br/> <span class="text-maritime-gold">ESP Specialist</span>
+                    </h1>
+                    <p class="text-lg text-slate-300 max-w-lg leading-relaxed">
+                        Mengintegrasikan ilmu kebahasaan dengan dunia kemaritiman. Fokus pada English for Specific Purposes (ESP) untuk transportasi darat, laut, dan udara.
+                    </p>
+                    <div class="flex gap-4 pt-4">
+                        <a href="#contact" class="px-6 py-3 bg-maritime-gold text-maritime-900 font-semibold rounded hover:bg-yellow-500 transition shadow-lg">
+                            Hubungi Saya
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=7p4q5FMAAAAJ&hl=en" target="_blank" class="px-6 py-3 border border-white/30 hover:bg-white/10 rounded text-white font-medium transition flex items-center gap-2">
+                            <i data-lucide="graduation-cap" class="w-5 h-5"></i> Google Scholar
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden lg:flex justify-end relative group" id="profile-container">
+                    <!-- Profile Image Component -->
+                    <div class="w-72 h-72 rounded-2xl bg-slate-200 relative overflow-hidden border-4 border-white/10 shadow-2xl rotate-3 hover:rotate-0 transition duration-500">
+                         <!-- Image Element -->
+                         <img id="profile-image" src="" alt="Dhanan Abimanto" class="w-full h-full object-cover hidden">
+                         
+                         <!-- Fallback Icon -->
+                         <div id="profile-fallback" class="absolute inset-0 flex items-center justify-center bg-maritime-800 text-slate-400">
+                            <i data-lucide="user" class="w-24 h-24 opacity-50"></i>
+                         </div>
+
+                         <!-- Admin Upload Overlay -->
+                         <div id="admin-upload-overlay" class="absolute inset-0 hidden flex-col items-center justify-center profile-overlay opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer text-white">
+                             <div id="upload-icon-wrapper">
+                                 <i data-lucide="camera" class="w-8 h-8 mb-2"></i>
+                             </div>
+                             <span class="text-sm font-semibold">Ganti Foto</span>
+                             <input type="file" id="profile-upload-input" class="absolute inset-0 opacity-0 cursor-pointer" accept="image/*">
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-serif font-bold text-maritime-900 mb-6">Tentang Saya</h2>
+            <p class="text-lg text-slate-600 leading-relaxed">
+                Saya adalah seorang dosen Bahasa Inggris yang mengabdikan diri di kampus maritim. Bidang keilmuan utama saya adalah <strong>English for Specific Purposes (ESP)</strong> dengan spesialisasi <strong>Bahasa Inggris Maritim</strong>. Selain itu, saya juga memiliki pengalaman luas dalam pengajaran Bahasa Inggris Transportasi yang mencakup sektor darat, laut, dan udara secara global.
+            </p>
+        </div>
+    </section>
+
+    <!-- Books Section -->
+    <section id="books" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-3xl font-serif font-bold text-maritime-900">Publikasi Buku</h2>
+                    <p class="text-slate-500 mt-2">Karya tulis dan buku ajar yang telah diterbitkan.</p>
+                </div>
+                <button id="add-book-btn" class="hidden px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 text-sm flex items-center gap-2">
+                    <i data-lucide="plus"></i> Tambah Buku
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="books-container">
+                <!-- Book Items will be injected here via JS -->
+                <div class="col-span-full text-center py-10 text-slate-400">Menghubungkan ke database...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-3xl font-serif font-bold text-maritime-900">Publikasi Ilmiah</h2>
+                    <p class="text-slate-500 mt-2">Artikel jurnal dan prosiding konferensi.</p>
+                </div>
+                <button id="add-pub-btn" class="hidden px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 text-sm flex items-center gap-2">
+                    <i data-lucide="plus"></i> Tambah Jurnal
+                </button>
+            </div>
+
+            <div class="space-y-4" id="publications-container">
+                <!-- Publications injected here -->
+                <div class="text-center py-10 text-slate-400">Menghubungkan ke database...</div>
+            </div>
+            
+            <div class="mt-8 text-center">
+                 <a href="https://scholar.google.com/citations?user=7p4q5FMAAAAJ&hl=en" target="_blank" class="inline-flex items-center gap-2 text-maritime-900 font-semibold hover:text-maritime-gold transition">
+                    Lihat selengkapnya di Google Scholar <i data-lucide="external-link" class="w-4 h-4"></i>
+                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- HAKI Section -->
+    <section id="haki" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-3xl font-serif font-bold text-maritime-900">Hak Kekayaan Intelektual (HAKI)</h2>
+                    <p class="text-slate-500 mt-2">Hak cipta dan paten yang telah terdaftar.</p>
+                </div>
+                <button id="add-haki-btn" class="hidden px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 text-sm flex items-center gap-2">
+                    <i data-lucide="plus"></i> Tambah HAKI
+                </button>
+            </div>
+
+            <div class="overflow-x-auto rounded-lg border border-slate-200 shadow-sm">
+                <table class="min-w-full divide-y divide-slate-200 bg-white">
+                    <thead class="bg-white">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Judul Ciptaan</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">No. Permohonan</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Tahun</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Status</th>
+                            <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-slate-500 uppercase tracking-wider actions-col hidden">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200" id="haki-container">
+                        <!-- HAKI items injected here -->
+                        <tr><td colspan="5" class="text-center py-6 text-slate-400">Menghubungkan ke database...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grants Section -->
+    <section id="grants" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+             <div class="bg-maritime-900 rounded-2xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+                <div class="relative z-10">
+                    <i data-lucide="award" class="w-12 h-12 text-maritime-gold mx-auto mb-4"></i>
+                    <h2 class="text-2xl md:text-3xl font-serif font-bold mb-4">Hibah Penelitian</h2>
+                    <p class="text-slate-300 max-w-2xl mx-auto mb-6">
+                        Penerima hibah penelitian kompetitif nasional dari pemerintah, berfokus pada pengembangan metode pembelajaran bahasa Inggris dan teknologi pendidikan maritim.
+                    </p>
+                </div>
+             </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-slate-50 border-t border-slate-200 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                         <i data-lucide="anchor" class="text-maritime-900 w-6 h-6"></i>
+                         <span class="font-bold text-xl text-maritime-900">Dhanan Abimanto</span>
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        Membangun kompetensi bahasa internasional untuk pelaut dan profesional transportasi masa depan.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-maritime-900 mb-4">Tautan Cepat</h3>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li><a href="#about" class="hover:text-maritime-gold">Tentang</a></li>
+                        <li><a href="#books" class="hover:text-maritime-gold">Publikasi</a></li>
+                        <li><a href="https://scholar.google.com/citations?user=7p4q5FMAAAAJ&hl=en" class="hover:text-maritime-gold">Google Scholar</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-maritime-900 mb-4">Afiliasi</h3>
+                    <p class="text-slate-500 text-sm">
+                        Universitas Maritim AMNI<br>
+                        Semarang, Indonesia
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center gap-4 text-xs text-slate-400">
+                    <p>&copy; 2025 Dhanan Abimanto. All rights reserved.</p>
+                    <div id="db-status" class="hidden items-center gap-1 text-green-600">
+                        <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                        Database Terhubung
+                    </div>
+                </div>
+                
+                <!-- Hidden Admin Login Trigger -->
+                <button onclick="toggleLoginModal()" class="text-slate-300 hover:text-slate-500 transition" title="Admin Access">
+                    <i data-lucide="lock" class="w-3 h-3"></i>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admin Login Modal -->
+    <div id="login-modal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center backdrop-blur-sm">
+        <div class="bg-white rounded-lg p-8 w-full max-w-sm shadow-2xl transform transition-all">
+            <h3 class="text-xl font-bold text-maritime-900 mb-4">Admin Access</h3>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Username</label>
+                    <input type="text" id="username" class="w-full px-3 py-2 border border-slate-300 rounded focus:outline-none focus:border-maritime-900">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Password</label>
+                    <input type="password" id="password" class="w-full px-3 py-2 border border-slate-300 rounded focus:outline-none focus:border-maritime-900">
+                </div>
+                <div id="login-error" class="text-red-500 text-xs hidden">Identitas tidak valid.</div>
+                
+                <!-- Helper for first time setup -->
+                <div id="seed-data-section" class="pt-2 border-t mt-2 hidden">
+                    <div class="bg-yellow-50 p-3 rounded border border-yellow-200 mb-2">
+                        <p class="text-xs text-yellow-800 font-semibold mb-1">Setup Awal</p>
+                        <p class="text-xs text-yellow-700">Database Anda kosong. Klik tombol di bawah untuk mengisi data portofolio awal.</p>
+                    </div>
+                    <button onclick="seedDatabase()" class="w-full py-2 bg-maritime-900 hover:bg-maritime-800 text-white text-xs font-bold rounded transition flex items-center justify-center gap-2">
+                        <i data-lucide="database" class="w-3 h-3"></i> Upload Data Default
+                    </button>
+                </div>
+
+                <div class="flex justify-end gap-3 pt-2">
+                    <button onclick="toggleLoginModal()" class="px-4 py-2 text-slate-500 hover:bg-slate-100 rounded">Batal</button>
+                    <button onclick="handleLogin()" class="px-4 py-2 bg-maritime-900 text-white rounded hover:bg-maritime-800">Masuk</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit/Add Modal (Generic) -->
+    <div id="edit-modal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center backdrop-blur-sm">
+        <div class="bg-white rounded-lg p-6 w-full max-w-lg shadow-2xl max-h-[90vh] overflow-y-auto">
+            <h3 class="text-xl font-bold text-maritime-900 mb-4" id="modal-title">Tambah Data</h3>
+            <div id="modal-form-content" class="space-y-4">
+                <!-- Fields injected by JS -->
+            </div>
+            <div class="flex justify-end gap-3 pt-6 border-t mt-6">
+                <button onclick="closeEditModal()" class="px-4 py-2 text-slate-500 hover:bg-slate-100 rounded">Batal</button>
+                <button id="save-data-btn" class="px-4 py-2 bg-maritime-900 text-white rounded hover:bg-maritime-800">Simpan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase Imports -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, deleteDoc, doc, onSnapshot, query, orderBy, setDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Firebase Configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyDK8c2JrYA_o_-oFfsePOu7NObgxz4GJK4",
+          authDomain: "portofolio-ef71b.firebaseapp.com",
+          projectId: "portofolio-ef71b",
+          storageBucket: "portofolio-ef71b.firebasestorage.app",
+          messagingSenderId: "74226122532",
+          appId: "1:74226122532:web:88a0df1ec417ea443ffdb1",
+          measurementId: "G-VYH4BZ1CCC"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        
+        // Define Paths (using a fixed app ID for this custom config)
+        const APP_ID = 'portofolio-app'; 
+        const booksCol = collection(db, 'artifacts', APP_ID, 'public', 'data', 'books');
+        const pubsCol = collection(db, 'artifacts', APP_ID, 'public', 'data', 'publications');
+        const hakiCol = collection(db, 'artifacts', APP_ID, 'public', 'data', 'haki');
+        // FIX: Ensure path has even number of segments (Doc Ref)
+        const profileDoc = doc(db, 'artifacts', APP_ID, 'public', 'data', 'profile_data', 'main');
+
+        // State
+        let books = [];
+        let publications = [];
+        let haki = [];
+        let isAdmin = false;
+        let isConnected = false;
+
+        // Initial Data for Seeding
+        const initialBooksData = [
+            { title: "SUSTAINABLE ENGLISH TEACHING: Raising Environmental Awareness through Language Education", isbn: "9786347409133", author: "Dr. Samsudin, M.Pd., Dr. Uzlifatul, et al.", publisher: "INFES MEDIA", year: "2025" },
+            { title: "A Guidebook: Teaching Vocabulary with Interactive Video on Edpuzzle", isbn: "9786238896486", author: "Dhanan Abimanto, Rudi Hartono, Sri Wahyuni", publisher: "CV Pustaka STIMART AMNI", year: "2025" },
+            { title: "A Handbook of English for Specific Purposes", isbn: "9786238665808", author: "Rina Octavia, Simarmata Bachtiar dkk", publisher: "CV. FUTURE SCIENCE", year: "2024" },
+            { title: "ENGLISH LANGUAGE", isbn: "9786231985651", author: "Nenden Sri Rahayu, Dhanan Abimanto, et al.", publisher: "GET PRESS INDONESIA", year: "2023" },
+            { title: "BUSINESS ENGLISH", isbn: "9786238844760", author: "Dhanan Abimanto, Ariana Oktavia", publisher: "CV Pustaka STIMART AMNI", year: "2023" },
+            { title: "MENGEVALUASI PEMBELAJARAN DARING BAHASA INGGRIS BERBASIS GOOGLE SITE", isbn: "9786239422882", author: "Dhanan Abimanto, Wasi Sumarsono", publisher: "CV Pustaka STIMART AMNI", year: "2022" },
+            { title: "ALGORITMA SUPPORT VECTOR MACHINE UNTUK MENGANALISA KEPUASAN MAHASISWA", isbn: "9786238844739", author: "Iwan Mahendro, Dhanan Abimanto", publisher: "CV Pustaka STIMART AMNI", year: "2022" },
+            { title: "Strategi pembelajaran", isbn: "9786239001674", author: "Jaka Wijaya Kusuma, M.Pd, et al.", publisher: "Yayasan Cendikia Mulia Mandiri", year: "2022" }
+        ];
+
+        const initialPubsData = [
+            { title: "Improving English Pronunciation by Applying Read Aloud Method Using Google Read Along App", journal: "Prosiding / Jurnal Penelitian", year: "2023", link: "#" },
+            { title: "Analisis Faktor-Faktor Kepatuhan Pengemudi, Kondisi Kendaraan, Kondisi Jalan Terhadap Keselamatan Angkutan Barang", journal: "Jurnal Transportasi", year: "2022", link: "#" },
+            { title: "Analisa Kepuasan Mahasiswa Terhadap E-Learning Menggunakan Algoritma Support Vector Machine", journal: "Jurnal Teknologi Informasi", year: "2022", link: "#" },
+            { title: "Evaluasi Pembelajaran Daring Bahasa Inggris Transportasi Berbasis Web Menggunakan Google Site", journal: "Jurnal Pendidikan Bahasa", year: "2022", link: "#" },
+            { title: "Reading Aloud Periodically Towards English Pronunciation of Non-English Major Students", journal: "Jurnal Pendidikan", year: "2021", link: "#" }
+        ];
+
+        const initialHakiData = [
+            { title: "Sustainable English Teaching...", no: "EC002025173679", year: "2025", status: "Diterima" },
+            { title: "A Guidebook: Teaching Vocabulary...", no: "EC002025061722", year: "2025", status: "Publish" },
+            { title: "A Handbook Of English For Specific Purposes", no: "EC002024217295", year: "2024", status: "Terdaftar" },
+            { title: "ENGLISH LANGUAGE", no: "EC00202369150", year: "2023", status: "Paten" },
+            { title: "Improving English Pronunciation...", no: "EC002023136697", year: "2023", status: "Granted" },
+            { title: "ANALISIS FAKTOR-FAKTOR KEPATUHAN...", no: "EC002022110258", year: "2022", status: "Diterima" },
+            { title: "ANALISA KEPUASAN MAHASISWA...", no: "EC002022100162", year: "2022", status: "Granted" },
+            { title: "EVALUASI PEMBELAJARAN DARING...", no: "EC002022100161", year: "2022", status: "Diterima" },
+            { title: "READING ALOUD PERIODICALLY...", no: "EC00202173037", year: "2021", status: "Granted" }
+        ];
+
+        // Auth & Init Logic
+        async function initAuth() {
+            try {
+                // Rely on Anonymous Auth for this custom configuration.
+                await signInAnonymously(auth);
+                console.log("Connected to Firebase");
+                // Update UI to show connected status
+                document.getElementById('db-status').classList.remove('hidden');
+                document.getElementById('db-status').classList.add('flex');
+                isConnected = true;
+                setupListeners();
+            } catch (error) {
+                console.error("Auth Error:", error);
+                alert("Gagal terhubung ke database. Pastikan koneksi internet lancar dan konfigurasi Firebase benar.");
+            }
+        }
+
+        // Realtime Listeners
+        function setupListeners() {
+            const onError = (error) => {
+                console.error("Listen Error:", error);
+                if (error.code === 'permission-denied') {
+                    alert("Izin Ditolak. Pastikan Security Rules di Firebase Console sudah diatur ke 'allow read, write: if request.auth != null;'.");
+                }
+            };
+
+            // Books Listener
+            onSnapshot(booksCol, (snapshot) => {
+                books = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                books.sort((a, b) => b.year - a.year);
+                window.renderBooks();
+                checkIfEmpty();
+            }, onError);
+
+            // Pubs Listener
+            onSnapshot(pubsCol, (snapshot) => {
+                publications = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                publications.sort((a, b) => b.year - a.year);
+                window.renderPublications();
+            }, onError);
+
+            // HAKI Listener
+            onSnapshot(hakiCol, (snapshot) => {
+                haki = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                haki.sort((a, b) => b.year - a.year);
+                window.renderHaki();
+            }, onError);
+
+            // Profile Info Listener
+            onSnapshot(profileDoc, (doc) => {
+                if (doc.exists()) {
+                    const data = doc.data();
+                    if (data.photoURL) {
+                        const img = document.getElementById('profile-image');
+                        const fallback = document.getElementById('profile-fallback');
+                        img.src = data.photoURL;
+                        img.classList.remove('hidden');
+                        fallback.classList.add('hidden');
+                    }
+                }
+            });
+        }
+
+        function checkIfEmpty() {
+             const seedSection = document.getElementById('seed-data-section');
+             if (books.length === 0 && publications.length === 0 && haki.length === 0) {
+                 seedSection.classList.remove('hidden');
+             } else {
+                 seedSection.classList.add('hidden');
+             }
+        }
+
+        // Global functions for HTML access
+        const emptyStateHTML = (msg) => `
+            <div class="col-span-full py-12 text-center">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-100 mb-4">
+                    <i data-lucide="database" class="w-8 h-8 text-slate-400"></i>
+                </div>
+                <h3 class="text-lg font-medium text-slate-900">Belum ada data</h3>
+                <p class="text-slate-500 mt-1 mb-4">${msg}</p>
+                <button onclick="toggleLoginModal()" class="text-sm text-maritime-900 hover:underline font-semibold">
+                    Login Admin untuk Upload Data Default
+                </button>
+            </div>
+        `;
+
+        window.renderBooks = function() {
+            const container = document.getElementById('books-container');
+            if (books.length === 0) {
+                container.innerHTML = emptyStateHTML('Daftar buku belum tersedia.');
+                lucide.createIcons();
+                return;
+            }
+            container.innerHTML = books.map(book => `
+                <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition border border-slate-100 p-6 flex flex-col h-full group">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="bg-blue-50 text-blue-800 text-xs px-2 py-1 rounded font-semibold">${book.year}</div>
+                        ${isAdmin ? `<button onclick="deleteItem('book', '${book.id}')" class="text-red-400 hover:text-red-600"><i data-lucide="trash-2" class="w-4 h-4"></i></button>` : ''}
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-800 mb-2 leading-tight">${book.title}</h3>
+                    <p class="text-sm text-slate-500 mb-4 flex-grow italic">ISBN: ${book.isbn}</p>
+                    <div class="mt-auto pt-4 border-t border-slate-100 text-sm text-slate-600">
+                        <div class="flex items-center gap-2 mb-1">
+                            <i data-lucide="pen-tool" class="w-3 h-3 text-maritime-gold"></i>
+                            <span class="truncate">${book.author}</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="building-2" class="w-3 h-3 text-maritime-gold"></i>
+                            <span class="truncate">${book.publisher}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            lucide.createIcons();
+        }
+
+        window.renderPublications = function() {
+            const container = document.getElementById('publications-container');
+            if (publications.length === 0) {
+                container.innerHTML = `<div class="text-center py-10 text-slate-400 italic">Belum ada data publikasi. Login untuk menambahkan.</div>`;
+                return;
+            }
+            container.innerHTML = publications.map(pub => `
+                <div class="flex flex-col md:flex-row gap-4 p-4 border border-slate-100 rounded-lg hover:bg-slate-50 transition items-start md:items-center">
+                    <div class="flex-grow">
+                        <h4 class="font-bold text-slate-800 text-lg">${pub.title}</h4>
+                        <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-slate-500 mt-1">
+                            <span class="text-maritime-gold font-medium">${pub.journal}</span>
+                            <span class="hidden md:inline">&bull;</span>
+                            <span>${pub.year}</span>
+                        </div>
+                    </div>
+                     <div class="flex items-center gap-3">
+                        ${isAdmin ? `<button onclick="deleteItem('pub', '${pub.id}')" class="text-red-400 hover:text-red-600 p-2"><i data-lucide="trash-2" class="w-4 h-4"></i></button>` : ''}
+                        <a href="${pub.link}" class="px-4 py-2 text-sm bg-slate-100 text-slate-600 rounded hover:bg-slate-200 transition">Detail</a>
+                     </div>
+                </div>
+            `).join('');
+            lucide.createIcons();
+        }
+
+        window.renderHaki = function() {
+            const container = document.getElementById('haki-container');
+            if (haki.length === 0) {
+                container.innerHTML = '<tr><td colspan="5" class="text-center py-6 text-slate-400 italic">Belum ada data HAKI. Login untuk menambahkan.</td></tr>';
+                return;
+            }
+            container.innerHTML = haki.map((item, index) => `
+                <tr class="${index % 2 === 0 ? 'bg-white' : 'bg-slate-50'}">
+                    <td class="px-6 py-4 whitespace-normal text-sm font-medium text-slate-900">${item.title}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500 font-mono">${item.no}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">${item.year}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                            ${item.status}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium actions-col ${isAdmin ? '' : 'hidden'}">
+                        <button onclick="deleteItem('haki', '${item.id}')" class="text-red-600 hover:text-red-900">Hapus</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // --- ADMIN LOGIC ---
+        window.toggleLoginModal = function() {
+            const modal = document.getElementById('login-modal');
+            modal.classList.toggle('hidden');
+            document.getElementById('login-error').classList.add('hidden');
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        }
+
+        window.handleLogin = function() {
+            const u = document.getElementById('username').value;
+            const p = document.getElementById('password').value;
+
+            if (u === 'admin343' && p === 'admin343') {
+                isAdmin = true;
+                window.updateAdminUI();
+                window.toggleLoginModal();
+                // Alert removed for smoother UX, visual feedback via UI update is enough
+            } else {
+                document.getElementById('login-error').classList.remove('hidden');
+            }
+        }
+
+        window.updateAdminUI = function() {
+            if (isAdmin) {
+                document.querySelectorAll('.actions-col').forEach(el => el.classList.remove('hidden'));
+                document.getElementById('add-book-btn').classList.remove('hidden');
+                document.getElementById('add-pub-btn').classList.remove('hidden');
+                document.getElementById('add-haki-btn').classList.remove('hidden');
+                
+                // Show profile edit overlay
+                const overlay = document.getElementById('admin-upload-overlay');
+                if(overlay) {
+                    overlay.classList.remove('hidden');
+                    overlay.classList.add('flex');
+                }
+
+                window.renderBooks(); 
+                window.renderPublications();
+                window.renderHaki();
+            }
+        }
+
+        // --- PROFILE IMAGE UPLOAD LOGIC ---
+        // Resize and convert to Base64 to avoid needing Firebase Storage buckets/cors setup
+        const resizeImage = (file) => {
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        const canvas = document.createElement('canvas');
+                        const ctx = canvas.getContext('2d');
+                        
+                        // Max dimensions
+                        const MAX_WIDTH = 400;
+                        const MAX_HEIGHT = 400;
+                        let width = img.width;
+                        let height = img.height;
+
+                        if (width > height) {
+                            if (width > MAX_WIDTH) {
+                                height *= MAX_WIDTH / width;
+                                width = MAX_WIDTH;
+                            }
+                        } else {
+                            if (height > MAX_HEIGHT) {
+                                width *= MAX_HEIGHT / height;
+                                height = MAX_HEIGHT;
+                            }
+                        }
+
+                        canvas.width = width;
+                        canvas.height = height;
+                        ctx.drawImage(img, 0, 0, width, height);
+                        resolve(canvas.toDataURL('image/jpeg', 0.8)); // 80% quality
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        };
+
+        const profileInput = document.getElementById('profile-upload-input');
+        if(profileInput) {
+            profileInput.addEventListener('change', async (e) => {
+                const file = e.target.files[0];
+                if (!file) return;
+
+                const iconWrapper = document.getElementById('upload-icon-wrapper');
+                const text = document.querySelector('#admin-upload-overlay span');
+                
+                // Loading state
+                if (iconWrapper) {
+                    iconWrapper.innerHTML = '<i data-lucide="loader-2" class="w-8 h-8 mb-2 animate-spin"></i>';
+                    lucide.createIcons();
+                }
+                if (text) text.innerText = "Mengunggah...";
+
+                try {
+                    const base64 = await resizeImage(file);
+                    // Save to Firestore
+                    await setDoc(profileDoc, { photoURL: base64 }, { merge: true });
+                    // alert("Foto profil berhasil diperbarui!");
+                } catch (error) {
+                    console.error("Upload Error:", error);
+                    alert("Gagal mengunggah foto: " + error.message);
+                } finally {
+                    // Reset UI
+                    if (iconWrapper) {
+                         iconWrapper.innerHTML = '<i data-lucide="camera" class="w-8 h-8 mb-2"></i>';
+                         lucide.createIcons();
+                    }
+                    if (text) text.innerText = "Ganti Foto";
+                }
+            });
+        }
+
+
+        // --- CRUD OPERATIONS (FIRESTORE) ---
+        window.deleteItem = async function(type, id) {
+            if (!confirm('Apakah Anda yakin ingin menghapus data ini dari Database?')) return;
+            
+            try {
+                if (type === 'book') {
+                    await deleteDoc(doc(booksCol, id));
+                } else if (type === 'pub') {
+                    await deleteDoc(doc(pubsCol, id));
+                } else {
+                    await deleteDoc(doc(hakiCol, id));
+                }
+            } catch (e) {
+                console.error("Delete failed", e);
+                alert("Gagal menghapus: " + e.message);
+            }
+        }
+
+        // Seeding function (Upload default data)
+        window.seedDatabase = async function() {
+            const btn = document.querySelector('#seed-data-section button');
+            const originalText = btn.innerHTML;
+            btn.textContent = "Mengunggah...";
+            btn.disabled = true;
+
+            try {
+                // Upload Books
+                for (const item of initialBooksData) await addDoc(booksCol, item);
+                // Upload Pubs
+                for (const item of initialPubsData) await addDoc(pubsCol, item);
+                // Upload Haki
+                for (const item of initialHakiData) await addDoc(hakiCol, item);
+                
+                alert("Data berhasil diunggah!");
+                window.toggleLoginModal(); // Close modal
+            } catch (e) {
+                console.error("Seed error", e);
+                alert("Terjadi kesalahan saat upload: " + e.message);
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }
+        }
+
+        // --- MODAL FORMS ---
+        const modal = document.getElementById('edit-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalContent = document.getElementById('modal-form-content');
+        const saveBtn = document.getElementById('save-data-btn');
+
+        window.closeEditModal = function() {
+            modal.classList.add('hidden');
+        }
+
+        document.getElementById('add-book-btn').addEventListener('click', () => {
+            modalTitle.innerText = "Tambah Buku Baru";
+            modalContent.innerHTML = `
+                <input type="text" id="input-title" placeholder="Judul Buku" class="w-full border p-2 rounded">
+                <input type="text" id="input-isbn" placeholder="ISBN" class="w-full border p-2 rounded">
+                <input type="text" id="input-author" placeholder="Penulis" class="w-full border p-2 rounded">
+                <input type="text" id="input-publisher" placeholder="Penerbit" class="w-full border p-2 rounded">
+                <input type="number" id="input-year" placeholder="Tahun" class="w-full border p-2 rounded">
+            `;
+            saveBtn.onclick = async () => {
+                const btn = saveBtn;
+                btn.textContent = "Menyimpan...";
+                try {
+                    await addDoc(booksCol, {
+                        title: document.getElementById('input-title').value,
+                        isbn: document.getElementById('input-isbn').value,
+                        author: document.getElementById('input-author').value,
+                        publisher: document.getElementById('input-publisher').value,
+                        year: document.getElementById('input-year').value,
+                        timestamp: Date.now()
+                    });
+                    closeEditModal();
+                } catch(e) { alert("Gagal menyimpan: " + e.message); }
+                btn.textContent = "Simpan";
+            };
+            modal.classList.remove('hidden');
+        });
+
+        document.getElementById('add-pub-btn').addEventListener('click', () => {
+            modalTitle.innerText = "Tambah Publikasi Ilmiah";
+            modalContent.innerHTML = `
+                <input type="text" id="input-pub-title" placeholder="Judul Artikel / Paper" class="w-full border p-2 rounded">
+                <input type="text" id="input-pub-journal" placeholder="Nama Jurnal / Konferensi" class="w-full border p-2 rounded">
+                <input type="number" id="input-pub-year" placeholder="Tahun" class="w-full border p-2 rounded">
+                <input type="text" id="input-pub-link" placeholder="Link (Opsional)" class="w-full border p-2 rounded">
+            `;
+            saveBtn.onclick = async () => {
+                const btn = saveBtn;
+                btn.textContent = "Menyimpan...";
+                try {
+                    await addDoc(pubsCol, {
+                        title: document.getElementById('input-pub-title').value,
+                        journal: document.getElementById('input-pub-journal').value,
+                        year: document.getElementById('input-pub-year').value,
+                        link: document.getElementById('input-pub-link').value || '#',
+                        timestamp: Date.now()
+                    });
+                    closeEditModal();
+                } catch(e) { alert("Gagal menyimpan: " + e.message); }
+                btn.textContent = "Simpan";
+            };
+            modal.classList.remove('hidden');
+        });
+
+        document.getElementById('add-haki-btn').addEventListener('click', () => {
+            modalTitle.innerText = "Tambah Data HAKI";
+            modalContent.innerHTML = `
+                <input type="text" id="input-haki-title" placeholder="Judul Ciptaan" class="w-full border p-2 rounded">
+                <input type="text" id="input-haki-no" placeholder="Nomor Permohonan" class="w-full border p-2 rounded">
+                <input type="number" id="input-haki-year" placeholder="Tahun" class="w-full border p-2 rounded">
+                <select id="input-haki-status" class="w-full border p-2 rounded">
+                    <option value="Diterima">Diterima</option>
+                    <option value="Granted">Granted</option>
+                    <option value="Publish">Publish</option>
+                    <option value="Proses">Proses</option>
+                </select>
+            `;
+            saveBtn.onclick = async () => {
+                const btn = saveBtn;
+                btn.textContent = "Menyimpan...";
+                try {
+                    await addDoc(hakiCol, {
+                        title: document.getElementById('input-haki-title').value,
+                        no: document.getElementById('input-haki-no').value,
+                        year: document.getElementById('input-haki-year').value,
+                        status: document.getElementById('input-haki-status').value,
+                        timestamp: Date.now()
+                    });
+                    closeEditModal();
+                } catch(e) { alert("Gagal menyimpan: " + e.message); }
+                btn.textContent = "Simpan";
+            };
+            modal.classList.remove('hidden');
+        });
+
+        // Setup Mobile Menu logic
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Start App
+        initAuth();
+        lucide.createIcons();
+
+    </script>
+</body>
+</html>
