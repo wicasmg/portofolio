@@ -89,6 +89,7 @@
                 <a href="#books" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-maritime-900 hover:bg-slate-50">Buku</a>
                 <a href="#publications" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-maritime-900 hover:bg-slate-50">Jurnal</a>
                 <a href="#haki" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-maritime-900 hover:bg-slate-50">HAKI</a>
+                <a href="#grants" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-maritime-900 hover:bg-slate-50">Hibah</a>
             </div>
         </div>
     </nav>
@@ -241,15 +242,20 @@
     <!-- Grants Section -->
     <section id="grants" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-             <div class="bg-maritime-900 rounded-2xl p-8 md:p-12 text-center text-white relative overflow-hidden">
-                <div class="relative z-10">
-                    <i data-lucide="award" class="w-12 h-12 text-maritime-gold mx-auto mb-4"></i>
-                    <h2 class="text-2xl md:text-3xl font-serif font-bold mb-4">Hibah Penelitian</h2>
-                    <p class="text-slate-300 max-w-2xl mx-auto mb-6">
-                        Penerima hibah penelitian kompetitif nasional dari pemerintah, berfokus pada pengembangan metode pembelajaran bahasa Inggris dan teknologi pendidikan maritim.
-                    </p>
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-3xl font-serif font-bold text-maritime-900">Hibah Penelitian</h2>
+                    <p class="text-slate-500 mt-2">Penelitian yang didanai oleh hibah kompetitif.</p>
                 </div>
-             </div>
+                <button id="add-grant-btn" class="hidden px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 text-sm flex items-center gap-2">
+                    <i data-lucide="plus"></i> Tambah Hibah
+                </button>
+            </div>
+
+            <div class="grid gap-6" id="grants-container">
+                <!-- Grants injected here -->
+                <div class="text-center py-10 text-slate-400">Menghubungkan ke database...</div>
+            </div>
         </div>
     </section>
 
@@ -374,13 +380,14 @@
         const booksCol = collection(db, 'artifacts', APP_ID, 'public', 'data', 'books');
         const pubsCol = collection(db, 'artifacts', APP_ID, 'public', 'data', 'publications');
         const hakiCol = collection(db, 'artifacts', APP_ID, 'public', 'data', 'haki');
-        // FIX: Ensure path has even number of segments (Doc Ref)
+        const grantsCol = collection(db, 'artifacts', APP_ID, 'public', 'data', 'grants');
         const profileDoc = doc(db, 'artifacts', APP_ID, 'public', 'data', 'profile_data', 'main');
 
         // State
         let books = [];
         let publications = [];
         let haki = [];
+        let grants = [];
         let isAdmin = false;
         let isConnected = false;
 
@@ -414,6 +421,12 @@
             { title: "ANALISA KEPUASAN MAHASISWA...", no: "EC002022100162", year: "2022", status: "Granted" },
             { title: "EVALUASI PEMBELAJARAN DARING...", no: "EC002022100161", year: "2022", status: "Diterima" },
             { title: "READING ALOUD PERIODICALLY...", no: "EC00202173037", year: "2021", status: "Granted" }
+        ];
+
+        const initialGrantsData = [
+            { title: "Analisis Korpus Bahasa Inggris Maritim untuk Pengembangan Kamus dan Model Kompetensi Komunikasi Teknis di Ruang Mesin Kapal", year: "2025", source: "Didanai" },
+            { title: "Pemanfaatan Teknologi AI Speech Recognition Untuk Memperbaiki Pengucapan Bahasa Inggris Melaui Metode Read Aloud", year: "2023", source: "Didanai" },
+            { title: "EVALUASI PEMBELAJARAN DARING BAHASA INGGRIS TRANSPORTASI BERBASIS WEB MENGGUNAKAN GOOGLE SITE DI MASA PANDEMI", year: "2022", source: "Didanai" }
         ];
 
         // Auth & Init Logic
@@ -464,6 +477,14 @@
                 window.renderHaki();
             }, onError);
 
+            // Grants Listener
+            onSnapshot(grantsCol, (snapshot) => {
+                grants = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                grants.sort((a, b) => b.year - a.year);
+                window.renderGrants();
+                checkIfEmpty();
+            }, onError);
+
             // Profile Info Listener
             onSnapshot(profileDoc, (doc) => {
                 if (doc.exists()) {
@@ -481,7 +502,7 @@
 
         function checkIfEmpty() {
              const seedSection = document.getElementById('seed-data-section');
-             if (books.length === 0 && publications.length === 0 && haki.length === 0) {
+             if (books.length === 0 && publications.length === 0 && haki.length === 0 && grants.length === 0) {
                  seedSection.classList.remove('hidden');
              } else {
                  seedSection.classList.add('hidden');
@@ -580,6 +601,29 @@
             `).join('');
         }
 
+        window.renderGrants = function() {
+            const container = document.getElementById('grants-container');
+            if (grants.length === 0) {
+                container.innerHTML = `<div class="text-center py-10 text-slate-400 italic">Belum ada data hibah. Login untuk menambahkan.</div>`;
+                return;
+            }
+            container.innerHTML = grants.map(grant => `
+                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="bg-maritime-900 text-white text-xs px-2 py-1 rounded font-bold">${grant.year}</span>
+                            <span class="text-green-600 text-xs font-bold uppercase tracking-wide flex items-center gap-1">
+                                <i data-lucide="check-circle-2" class="w-3 h-3"></i> ${grant.source}
+                            </span>
+                        </div>
+                        <h3 class="font-bold text-lg text-slate-800 leading-snug">${grant.title}</h3>
+                    </div>
+                    ${isAdmin ? `<button onclick="deleteItem('grant', '${grant.id}')" class="text-red-400 hover:text-red-600 p-2 shrink-0"><i data-lucide="trash-2" class="w-5 h-5"></i></button>` : ''}
+                </div>
+            `).join('');
+            lucide.createIcons();
+        }
+
         // --- ADMIN LOGIC ---
         window.toggleLoginModal = function() {
             const modal = document.getElementById('login-modal');
@@ -609,6 +653,7 @@
                 document.getElementById('add-book-btn').classList.remove('hidden');
                 document.getElementById('add-pub-btn').classList.remove('hidden');
                 document.getElementById('add-haki-btn').classList.remove('hidden');
+                document.getElementById('add-grant-btn').classList.remove('hidden');
                 
                 // Show profile edit overlay
                 const overlay = document.getElementById('admin-upload-overlay');
@@ -620,6 +665,7 @@
                 window.renderBooks(); 
                 window.renderPublications();
                 window.renderHaki();
+                window.renderGrants();
             }
         }
 
@@ -708,8 +754,10 @@
                     await deleteDoc(doc(booksCol, id));
                 } else if (type === 'pub') {
                     await deleteDoc(doc(pubsCol, id));
-                } else {
+                } else if (type === 'haki') {
                     await deleteDoc(doc(hakiCol, id));
+                } else if (type === 'grant') {
+                    await deleteDoc(doc(grantsCol, id));
                 }
             } catch (e) {
                 console.error("Delete failed", e);
@@ -731,6 +779,8 @@
                 for (const item of initialPubsData) await addDoc(pubsCol, item);
                 // Upload Haki
                 for (const item of initialHakiData) await addDoc(hakiCol, item);
+                // Upload Grants
+                for (const item of initialGrantsData) await addDoc(grantsCol, item);
                 
                 alert("Data berhasil diunggah!");
                 window.toggleLoginModal(); // Close modal
@@ -828,6 +878,30 @@
                         no: document.getElementById('input-haki-no').value,
                         year: document.getElementById('input-haki-year').value,
                         status: document.getElementById('input-haki-status').value,
+                        timestamp: Date.now()
+                    });
+                    closeEditModal();
+                } catch(e) { alert("Gagal menyimpan: " + e.message); }
+                btn.textContent = "Simpan";
+            };
+            modal.classList.remove('hidden');
+        });
+
+        document.getElementById('add-grant-btn').addEventListener('click', () => {
+            modalTitle.innerText = "Tambah Hibah Penelitian";
+            modalContent.innerHTML = `
+                <input type="text" id="input-grant-title" placeholder="Judul Hibah" class="w-full border p-2 rounded">
+                <input type="number" id="input-grant-year" placeholder="Tahun" class="w-full border p-2 rounded">
+                <input type="text" id="input-grant-source" placeholder="Status / Sumber (misal: Didanai)" class="w-full border p-2 rounded">
+            `;
+            saveBtn.onclick = async () => {
+                const btn = saveBtn;
+                btn.textContent = "Menyimpan...";
+                try {
+                    await addDoc(grantsCol, {
+                        title: document.getElementById('input-grant-title').value,
+                        year: document.getElementById('input-grant-year').value,
+                        source: document.getElementById('input-grant-source').value || 'Didanai',
                         timestamp: Date.now()
                     });
                     closeEditModal();
